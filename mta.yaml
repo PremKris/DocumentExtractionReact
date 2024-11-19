@@ -1,0 +1,80 @@
+_schema-version: "3.2"
+ID: documentExchange
+version: 0.0.1
+modules:
+- name: documentExchange-destination-content
+  type: com.sap.application.content
+  requires:
+  - name: documentExchange-destination-service
+    parameters:
+      content-target: true
+  - name: documentExchange_html_repo_host
+    parameters:
+      service-key:
+        name: documentExchange_html_repo_host-key
+  - name: uaa_documentExchange
+    parameters:
+      service-key:
+        name: uaa_documentExchange-key
+  parameters:
+    content:
+      instance:
+        destinations:
+        - Name: fgjyiu_documentExchange_html_repo_host
+          ServiceInstanceName: documentExchange-html5-app-host-service
+          ServiceKeyName: documentExchange_html_repo_host-key
+          sap.cloud.service: fgjyiu
+        - Authentication: OAuth2UserTokenExchange
+          Name: fgjyiu_uaa_documentExchange
+          ServiceInstanceName: documentExchange-xsuaa-service
+          ServiceKeyName: uaa_documentExchange-key
+          sap.cloud.service: fgjyiu
+        existing_destinations_policy: ignore
+  build-parameters:
+    no-source: true
+- name: documentExchange_ui_deployer
+  type: com.sap.application.content
+  path: .
+  requires:
+  - name: documentExchange_html_repo_host
+    parameters:
+      content-target: true
+  build-parameters:
+    build-result: resources
+    requires:
+    - artifacts:
+      - reactModuleDocument-content.zip
+      name: reactModuleDocument
+      target-path: resources/
+- name: reactModuleDocument
+  type: html5
+  path: reactModuleDocument
+  build-parameters:
+    builder: custom
+    commands:
+    - npm install
+    - npm run build
+    supported-platforms: []
+resources:
+- name: documentExchange-destination-service
+  type: org.cloudfoundry.managed-service
+  parameters:
+    config:
+      HTML5Runtime_enabled: true
+      version: 1.0.0
+    service: destination
+    service-name: documentExchange-destination-service
+    service-plan: lite
+- name: documentExchange_html_repo_host
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: html5-apps-repo
+    service-name: documentExchange-html5-app-host-service
+    service-plan: app-host
+- name: uaa_documentExchange
+  type: org.cloudfoundry.managed-service
+  parameters:
+    path: ./xs-security.json
+    service: xsuaa
+    service-name: documentExchange-xsuaa-service
+    service-plan: application
