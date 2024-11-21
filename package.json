@@ -8,5 +8,8 @@
   },
   "scripts": {
     "build-reactModuleDocument": "cd reactModuleDocument && if [ ! -d ${workspaceFolder}/documentExchange/reactModuleDocument/node_modules/react-scripts ] && [ ! -d ${workspaceFolder}/documentExchange/node_modules/react-scripts ]; then npm i; fi && npm run build"
+  },
+  "dependencies": {
+    "react-router-dom": "^6.28.0"
   }
 }

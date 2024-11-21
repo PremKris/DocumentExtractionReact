@@ -1,11 +1,279 @@
-.App {
-  text-align: center;
-}
+
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
+
+.input-container {
+  width: 50vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  margin-left: 255px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+}
+
+/* .input-label {
+  display: block;
+  margin-bottom: 8px;
+  margin-left: 130px;
+}
+
+.input-field {
+  display: block;
+  padding: 4px;
+  margin-left: 200px;
+}
+.input-label1 {
+  display: block;
+  margin-bottom: 8px;
+  margin-right: 678px;
+}
+
+.input-field1 {
+  display: block;
+  padding: 4px;
+  margin-right: 660px;
+} */
+
+
+
+.back-button {
+  background-color: #0073E6 !important;
+  color: white !important;
+  border: none !important;
+  padding: 10px 20px !important;
+  font-size: 16px !important;
+  border-radius: 25px !important;
+  cursor: pointer !important;
+}
+
+.back-button:hover {
+  background-color: #3e73a3 !important; /* Even darker shade for hover effect */
+}
+
+
+.create {
+  position: absolute;
+  top: 87px;
+  right: 68px;
+  background-color: rgb(38, 38, 149);
+  color: white;
+  padding: 8px 12px; /* Reduced padding for a smaller background */
+  font-size: 18px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.create:hover{
+  background-color: darkblue;
+  transform: scale(1.1);
+}
+
+.fixed-container {
+  position: fixed;
+  top: 70px; /* Keeps it below the blue header */
+  width: 100%;
+  height: 60px; /* Increased height for better visibility */
+  z-index: 1000; /* Ensure it stays above other content */
+  background-color: white; /* Ensure it has a solid background */
+  box-shadow: 0 4px 2px -2px gray; /* Optional: A shadow to differentiate */
+  padding: 10px 20px; /* Add some padding for inner content */
+}
+
+.blue-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: #3f51b5;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.tab-menu {
+  position: fixed;
+  top: 82px; /* Place it below the fixed container (adjusted to fit) */
+  left: 0;
+  width: 100%;
+  background-color: white; /* White background to cover any content beneath */
+  z-index: 999; /* Make sure it's below the fixed container but still on top of other content */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional subtle shadow */
+  padding: 10px 0;
+}
+
+
+.tab-menu .tab {
+  padding: 10px 20px;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+}
+
+.tab-menu .tab:hover {
+  border-bottom: 2px solid blue;
+}
+
+
+.active {
+  color: #2a6ebc;
+  border-bottom: 3px solid #2a6ebc;
+}
+
+.content {
+  padding-top: 100px; /* Adjust this based on the height of your fixed content */
+  position: relative;
+  width: 94%;
+  left: 50px;
+}
+
+
+/* Attachments container */
+.attachments-container {
+  margin-top: 20px;
+  padding: 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* File icon and info */
+.file-info {
+  display: flex;
+  align-items: center;
+}
+
+.file-icon {
+  font-size: 24px;
+  color: #3f51b5; /* Icon color */
+  margin-right: 10px;
+}
+
+.file-details {
+  font-size: 14px;
+}
+
+.file-details a {
+  color: #3f51b5; /* Link color */
+  text-decoration: none;
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.file-details .meta-info {
+  color: #757575; /* Light text color */
+}
+
+/* Buttons on the right (edit and delete) */
+.action-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.action-buttons .edit-btn,
+.action-buttons .delete-btn {
+  cursor: pointer;
+  margin-left: 10px;
+  font-size: 18px;
+  color: #3f51b5; /* Button color */
+}
+
+.upload-btn {
+  color: #3f51b5;
+  border: 1px solid #3f51b5;
+  border-radius: 4px;
+  padding: 5px 10px;
+  cursor: pointer;
+  background-color: white;
+}
+
+
+.uploadTopRight{
+  right : 66px,
+  
+}
+
+/* 
+.classForAttachmentList{
+  width: 257%;
+  right: 471px;
+  position: relative;
+  top: 19px; 
+} */
+.classForAttachmentList {
+  align-items: center;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+
+/* for completion document */
+
+.completionIcon{
+  position: relative;
+  left: -148.px;
+}
+
+.fileNameCompletion{
+  position: relative;
+  left : -19px;
+}
+
+.idOfsupplierCompletion{
+  position: relative;
+  left: -155px;
+}
+
+
+/* Container styling */
+.info-box {
+  position: relative;
+  top: 78px;
+  width: 442px; /* Adjust width as needed */
+  padding: 21px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+/* Row styling */
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+/* Label styling */
+.info-row label {
+  font-weight: bold;
+  color: #333;
+  margin-right: 10px;
+}
+
+/* Span styling */
+.info-row span {
+  color: #555;
+}
+
+#HgeneralInfo{
+  position: relative;
+  top : 70px;
+}
+
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
